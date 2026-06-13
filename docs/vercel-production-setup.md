@@ -25,6 +25,12 @@ Important: in the Vercel dashboard, keep the Project Root at the repository root
 If the project is pointed at `artifacts/api-server` or `artifacts/papi-foundation`,
 Vercel will build the wrong package and can fail with a missing-entrypoint error.
 
+If the workspace build succeeds but Vercel still reports
+`No entrypoint found in output directory`, the issue is no longer the build
+command. At that point, the deployment model itself likely needs to change:
+either split the frontend/backend into separate Vercel projects or migrate to a
+Build Output API-style setup for the combined app.
+
 ## Required Environment Variables
 
 Set these in Vercel Project Settings:
