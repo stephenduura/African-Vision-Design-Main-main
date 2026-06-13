@@ -28,9 +28,10 @@ import Account from "@/pages/Account";
 import News from "@/pages/News";
 import EventDetail from "@/pages/EventDetail";
 import Dashboard from "@/pages/Dashboard";
+import { normalizeBasePath } from "@/lib/basePath";
 
 const queryClient = new QueryClient();
-const basePath = import.meta.env.BASE_URL.replace(/\/$/, "");
+const basePath = normalizeBasePath(import.meta.env.BASE_URL);
 const supabaseConfigured = Boolean(
   import.meta.env.VITE_SUPABASE_URL?.trim() &&
     import.meta.env.VITE_SUPABASE_ANON_KEY?.trim(),

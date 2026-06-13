@@ -57,9 +57,13 @@ Backend and shared runtime:
 Frontend:
 
 - `VITE_SUPABASE_URL=https://kzfibfvfejutygenjfhs.supabase.co`
-- `VITE_SUPABASE_ANON_KEY`
+- `VITE_SUPABASE_ANON_KEY=<paste-the-anon-key-you-provided>`
 - `VITE_ADMIN_USER_IDS`
 - `VITE_ADMIN_EMAILS`
+
+If you are building the static frontend for Hostinger instead of Vercel, use the
+same frontend variables at build time and set `BASE_PATH=./` so the generated
+asset URLs stay relative.
 
 If your Vercel production URL is `https://example.vercel.app`, use that exact origin for:
 

@@ -45,7 +45,7 @@ STRIPE_WEBHOOK_SECRET=<your-stripe-webhook-secret>
 
 ```bash
 VITE_SUPABASE_URL=https://kzfibfvfejutygenjfhs.supabase.co
-VITE_SUPABASE_ANON_KEY=<your-supabase-anon-key>
+VITE_SUPABASE_ANON_KEY=<paste-the-anon-key-you-provided>
 VITE_ADMIN_USER_IDS=<comma-separated-supabase-user-ids>
 VITE_ADMIN_EMAILS=<optional-comma-separated-admin-emails>
 ```

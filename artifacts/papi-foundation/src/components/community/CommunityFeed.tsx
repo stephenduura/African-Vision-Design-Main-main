@@ -30,6 +30,9 @@ import {
   ImagePlus,
 } from "lucide-react";
 import { useAuth } from "@/contexts/AuthContext";
+import { normalizeBasePath } from "@/lib/basePath";
+
+const basePath = normalizeBasePath(import.meta.env.BASE_URL);
 
 type ReactionType = "like" | "love" | "celebrate" | "support" | "insightful";
 
@@ -238,7 +241,7 @@ function CommentThread({ postId }: { postId: number }) {
                     onReact={(type) =>
                       user
                         ? onReact(c.id, type)
-                        : (window.location.href = `${import.meta.env.BASE_URL.replace(/\/$/, "")}/sign-in`)
+                        : (window.location.href = `${basePath}/sign-in`)
                     }
                   />
                   {user && user.id === c.authorId && (
@@ -282,7 +285,7 @@ function PostCard({ post }: { post: CommunityPost }) {
 
   const onReact = (type: ReactionType) => {
     if (!user) {
-      window.location.href = `${import.meta.env.BASE_URL.replace(/\/$/, "")}/sign-in`;
+      window.location.href = `${basePath}/sign-in`;
       return;
     }
     reactToPost.mutate(

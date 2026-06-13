@@ -25,6 +25,13 @@ Frontend:
 - `VITE_ADMIN_USER_IDS` if you want role badges in the UI
 - `VITE_ADMIN_EMAILS` if you want email-based admin highlighting
 
+Static Hostinger deploy:
+
+- Build the frontend with `BASE_PATH=./` so asset URLs stay relative.
+- Set only the frontend variables in the static build environment.
+- Do not upload `SUPABASE_SERVICE_ROLE_KEY`, `SUPABASE_DB_URL`, or Stripe secret values into the static Hostinger files.
+- Host the API/backend separately if you need sign-in, profile sync, donations, or community mutations.
+
 Stripe and other existing variables should stay in place if the app still uses payments:
 
 - `STRIPE_PUBLISHABLE_KEY`
