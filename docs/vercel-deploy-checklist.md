@@ -9,6 +9,8 @@ Use this as the final production launch form for the app.
 - Root Directory: leave this at the repository root
 - Do not point the project at `artifacts/api-server` or `artifacts/papi-foundation`
 - The expected build log should show the workspace root build, then both the API server and frontend builds
+- If the log starts with `> @workspace/api-server@... build`, the Root Directory is still wrong
+- That log means Vercel is resolving `artifacts/papi-foundation/dist/public` relative to `artifacts/api-server`, which cannot work
 
 ### Build
 
