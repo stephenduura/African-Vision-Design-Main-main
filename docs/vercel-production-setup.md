@@ -24,6 +24,9 @@ The repo's [`vercel.json`](../vercel.json) is set up to:
 Important: in the Vercel dashboard, keep the Project Root at the repository root.
 If the project is pointed at `artifacts/api-server` or `artifacts/papi-foundation`,
 Vercel will build the wrong package and can fail with a missing-entrypoint error.
+Before reading any later log output, confirm the deployment is using the latest
+`main` commit hash. If Vercel is still building an older commit, redeploy from
+the current `main` branch first.
 
 If the workspace build succeeds but Vercel still reports
 `No entrypoint found in output directory`, the issue is no longer the build

@@ -6,6 +6,7 @@ Use this as the final production launch form for the app.
 
 ### Project Root
 
+- First confirm the deployment is using the latest `main` commit hash
 - Root Directory: leave this at the repository root
 - Do not point the project at `artifacts/api-server` or `artifacts/papi-foundation`
 - The expected build log should show the workspace root build, then both the API server and frontend builds
