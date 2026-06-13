@@ -4,6 +4,12 @@ Use this as the final production launch form for the app.
 
 ## 1) Vercel Project Settings
 
+### Project Root
+
+- Root Directory: leave this at the repository root
+- Do not point the project at `artifacts/api-server` or `artifacts/papi-foundation`
+- The expected build log should show the workspace root build, then both the API server and frontend builds
+
 ### Build
 
 - Framework preset: `Other`

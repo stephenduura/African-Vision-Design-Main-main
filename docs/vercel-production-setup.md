@@ -21,6 +21,10 @@ The repo's [`vercel.json`](../vercel.json) is set up to:
 - keep `/api/*` routed to the serverless API
 - send SPA routes back to `index.html`
 
+Important: in the Vercel dashboard, keep the Project Root at the repository root.
+If the project is pointed at `artifacts/api-server` or `artifacts/papi-foundation`,
+Vercel will build the wrong package and can fail with a missing-entrypoint error.
+
 ## Required Environment Variables
 
 Set these in Vercel Project Settings:
