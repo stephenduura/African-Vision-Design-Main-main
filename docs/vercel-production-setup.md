@@ -33,6 +33,7 @@ If the workspace build succeeds but Vercel still reports
 command. At that point, the deployment model itself likely needs to change:
 either split the frontend/backend into separate Vercel projects or migrate to a
 Build Output API-style setup for the combined app.
+The current single-project hybrid setup is not packaging cleanly on Vercel.
 
 ## Required Environment Variables
 

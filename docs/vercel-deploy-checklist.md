@@ -13,7 +13,8 @@ Use this as the final production launch form for the app.
 - If the log starts with `> @workspace/api-server@... build`, the Root Directory is still wrong
 - That log means Vercel is resolving `artifacts/papi-foundation/dist/public` relative to `artifacts/api-server`, which cannot work
 - If the workspace build completes and Vercel still says `No entrypoint found in output directory`, the project is past the root-dir issue and is now failing at packaging time
-- In that case, recheck the Vercel project model: this repo is a monorepo, and Vercel may need a separate project per deployable app or a Build Output API setup instead of a single hybrid project
+- In that case, recheck the Vercel project model: this repo is a monorepo, and the current single-project hybrid setup is not packaging cleanly on Vercel
+- The practical fix is to split into separate Vercel projects or move to a Build Output API setup that explicitly describes the frontend and serverless functions
 
 ### Build
 
