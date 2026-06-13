@@ -1,0 +1,28 @@
+{
+  "name": "workspace",
+  "version": "0.0.0",
+  "packageManager": "pnpm@10.28.0",
+  "license": "MIT",
+  "scripts": {
+    "preinstall": "node -e \"const fs=require('fs'); for (const file of ['package-lock.json','yarn.lock']) { try { fs.unlinkSync(file); } catch {} } if (!String(process.env.npm_config_user_agent || '').startsWith('pnpm/')) { console.error('Use pnpm instead'); process.exit(1); }\"",
+    "build": "pnpm run typecheck && pnpm --filter @workspace/api-server run build && pnpm --filter @workspace/papi-foundation run build",
+    "typecheck:libs": "node --max-old-space-size=2048 ./node_modules/typescript/bin/tsc --build",
+    "typecheck": "pnpm run typecheck:libs && pnpm --filter @workspace/api-server run typecheck && pnpm --filter @workspace/papi-foundation run typecheck && pnpm --filter @workspace/scripts run typecheck"
+  },
+  "private": true,
+  "devDependencies": {
+    "@types/express": "^5.0.6",
+    "prettier": "^3.8.3",
+    "typescript": "~5.9.3"
+  },
+  "dependencies": {
+    "express": "^5.2.1",
+    "stripe": "^22.2.0",
+    "stripe-replit-sync": "^1.0.0"
+  },
+  "optionalDependencies": {
+    "@rollup/rollup-win32-x64-msvc": "4.61.1",
+    "@esbuild/win32-x64": "0.27.3",
+    "lightningcss-win32-x64-msvc": "1.32.0"
+  }
+}

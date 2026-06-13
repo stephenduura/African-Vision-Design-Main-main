@@ -1,0 +1,30 @@
+import { Router } from "express";
+import { db, teamMembersTable, type TeamMember } from "@workspace/db";
+import { CreateTeamMemberBody } from "@workspace/api-zod";
+import { asc } from "drizzle-orm";
+import { requireAdmin } from "../lib/adminAuth";
+
+const router = Router();
+
+router.get("/team", async (req, res): Promise<void> => {
+  const members: TeamMember[] = await db
+    .select()
+    .from(teamMembersTable)
+    .orderBy(asc(teamMembersTable.order));
+  res.json(members.map((m: TeamMember) => ({ ...m, createdAt: undefined })));
+});
+
+router.post("/team", async (req, res): Promise<void> => {
+  if (!(await requireAdmin(req, res))) {
+    return;
+  }
+  const parsed = CreateTeamMemberBody.safeParse(req.body);
+  if (!parsed.success) {
+    res.status(400).json({ error: parsed.error.message });
+    return;
+  }
+  const [member] = await db.insert(teamMembersTable).values(parsed.data).returning();
+  res.status(201).json(member);
+});
+
+export default router;
